@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import edu.mum.domain.Authority;
 import edu.mum.domain.User;
 import edu.mum.domain.UserCredentials;
 import edu.mum.service.UserCredentialsService;
@@ -33,6 +34,15 @@ public class LoginController {
 		if (validCredentials == null)
 			return  "login";
 		model.addAttribute("user", validCredentials.getUser());
+		
+		for (Authority auth : validCredentials.getAuthority())
+		{
+			if (auth.getAuthority().equals("ROLE_ADMIN"))
+			{
+				return "admin/admin";
+			}
+		}
+			
  		return "welcome";
 	}
  
@@ -49,4 +59,9 @@ public class LoginController {
 		status.setComplete();
  		return "redirect:/welcome";
  	}
+	
+	@RequestMapping(value="/admin", method = RequestMethod.GET)
+	public String admin() {
+ 		return "admin/admin";
+	}
 }
