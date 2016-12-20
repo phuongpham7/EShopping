@@ -12,7 +12,7 @@
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">EShopping</a>
-		</div>
+		</div>	
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="<spring:url value="/admin" />">Home</a></li>
 			<li><a href="#">Category</a></li>

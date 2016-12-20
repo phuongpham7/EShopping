@@ -37,7 +37,7 @@ public class LoginController {
 		}
 		if (validCredentials == null)
 		{
-			model.addAttribute("error", "Username/Password not found");
+			model.addAttribute("error", "Username/Password not found");  
 			return "login";
 		}
 			
