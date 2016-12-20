@@ -79,5 +79,23 @@ public class UserCredentials {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public boolean isAdmin(){
+		for (Authority auth : authority)
+		{
+			if (auth.getAuthority().equals("ROLE_ADMIN"))
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean isUser(){
+		for (Authority auth : authority)
+		{
+			if (auth.getAuthority().equals("ROLE_USER"))
+				return true;
+		}
+		return false;
+	}
 
 }

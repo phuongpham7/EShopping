@@ -115,5 +115,12 @@ public class User {
  	public Integer getAge() {
 		return age;
 	}
+ 	
+ 	public boolean isAdmin()
+ 	{
+ 		if (this.getUserCredentials().isAdmin())
+ 			return true;
+ 		return false;
+ 	}
 
   }

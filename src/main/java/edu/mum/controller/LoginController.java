@@ -43,11 +43,7 @@ public class LoginController {
 			
 		model.addAttribute("user", validCredentials.getUser());
 
-		for (Authority auth : validCredentials.getAuthority()) {
-			if (auth.getAuthority().equals("ROLE_ADMIN")) {
-				return "admin/admin";
-			}
-		}
+		if (validCredentials.isAdmin())	return "admin/admin";
 
 		return "welcome";
 	}
@@ -69,5 +65,10 @@ public class LoginController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin() {
 		return "admin/admin";
+	}
+	
+	@RequestMapping(value = "/category", method = RequestMethod.GET)
+	public String category() {
+		return "admin/category";
 	}
 }
