@@ -11,5 +11,5 @@ public interface UserCredentialsService {
 	public List<UserCredentials> findAll();
 	public UserCredentials findOne(Long id);
 	public UserCredentials findByUserName(String userName);
-	public UserCredentials authenticate(String userName, String password);  
+	public UserCredentials authenticate(String userName, String password);
  }

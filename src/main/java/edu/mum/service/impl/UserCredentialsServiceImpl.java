@@ -28,7 +28,7 @@ public class UserCredentialsServiceImpl implements edu.mum.service.UserCredentia
 	}
  	
   	
-	public List<UserCredentials> findAll() { 
+	public List<UserCredentials> findAll() {
 		return (List<UserCredentials>)userCredentialsDao.findAll();
 	}
 	
