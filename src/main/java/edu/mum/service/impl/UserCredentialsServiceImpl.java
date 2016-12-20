@@ -41,4 +41,12 @@ public class UserCredentialsServiceImpl implements edu.mum.service.UserCredentia
 		return userCredentialsDao.findByUserName(userName);
 	}
 
+	@Override
+	public UserCredentials authenticate(String userName, String password) {
+		UserCredentials u = findByUserName(userName);
+		if (u.getPassword().equals(password))
+			return u;
+		return null;
+	}
+
 }

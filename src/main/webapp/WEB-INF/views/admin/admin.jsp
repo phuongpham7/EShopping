@@ -15,8 +15,8 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="<spring:url value="/admin" />">Home</a></li>
-			<li><a href="#">Add Category</a></li>
-			<li><a href="#">Add Item</a></li>
+			<li><a href="#">Category</a></li>
+			<li><a href="#">Item</a></li>
 			<li><a href="<spring:url value='/logout' />">Logout</a></li>
 		</ul>
 	</div>
