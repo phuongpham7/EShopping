@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import edu.mum.validation.EmptyOrSize;
+
 @Entity
 public class Category {
 
@@ -20,7 +22,9 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@EmptyOrSize(min = 1, max = 50, message = "{EmptyOrSize}")
 	String name;
+	
 	String description;
 
 	// If using a List INSTEAD of a SET - less efficient

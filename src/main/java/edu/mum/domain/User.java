@@ -20,6 +20,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 import edu.mum.validation.EmptyOrSize;
 import edu.mum.validation.NullMinNumber;
@@ -32,14 +33,14 @@ public class User {
 	private Long id;
 
 	@Column(length = 16)
-	@NotEmpty
+	@EmptyOrSize(min = 5, max = 9, message = "{EmptyOrSize}")
 	private String firstName;
 
 	@Column(length = 16)
 	@EmptyOrSize(min = 5, max = 9, message = "{EmptyOrSize}")
 	private String lastName;
 
-	@NullMinNumber(value = 6)
+	@NullMinNumber(value = 16)
 	private Integer age;
 
 	@Column(length = 32)

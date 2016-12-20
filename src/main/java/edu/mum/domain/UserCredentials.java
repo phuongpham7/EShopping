@@ -14,15 +14,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import edu.mum.validation.EmptyOrSize;
+
 @Entity(name = "CREDENTIALS")
 public class UserCredentials {
 
 	@Id
 	@Column(nullable = false, unique = true)
 	String username;
+	
 	@Column(nullable = false)
+	@EmptyOrSize(min = 8, max = 16, message = "{EmptyOrSize}")
 	String password;
+	
 	String verifyPassword;
+	
 	Boolean enabled;
 
 	@OneToOne(mappedBy = "userCredentials", cascade = CascadeType.PERSIST)

@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import edu.mum.validation.EmptyOrSize;
 
 @Entity
@@ -19,8 +21,12 @@ public class Address {
 
 	@EmptyOrSize(min = 5, max = 9, message = "{EmptyOrSize}")
 	private String street;
+	
+	@NotEmpty
 	private String city;
 	private String state;
+	
+	@NotEmpty
 	private String zipCode;
 
 	@ManyToOne(fetch = FetchType.EAGER)
