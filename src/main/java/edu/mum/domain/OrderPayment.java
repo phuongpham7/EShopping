@@ -11,23 +11,22 @@ import javax.persistence.Version;
 @Entity
 public class OrderPayment {
 
-	  @Id
-	   @GeneratedValue(strategy = GenerationType.AUTO)
-	   @Column(name = "id", updatable = false, nullable = false)
-	   private Long id = null;
-	   @Version
-	   @Column(name = "version")
-	   private int version = 0;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", updatable = false, nullable = false)
+	private Long id = null;
+	@Version
+	@Column(name = "version")
+	private int version = 0;
 
-	   @Column
-	   private Integer paymentNumber;
+	@Column
+	private Integer paymentNumber;
 
-	   @Column(length = 4)
-	   private String paymentType;
+	@Column(length = 4)
+	private String paymentType;
 
-	   @Column
-	   private Integer amount;
-
+	@Column
+	private Integer amount;
 
 	public Long getId() {
 		return id;
@@ -69,6 +68,4 @@ public class OrderPayment {
 		this.amount = amount;
 	}
 
-	
-	
 }

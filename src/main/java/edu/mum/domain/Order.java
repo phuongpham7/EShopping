@@ -22,18 +22,19 @@ import javax.persistence.Version;
 @Table(name = "purchaseOrder")
 
 public class Order {
-	  @Id
-	   @GeneratedValue(strategy = GenerationType.AUTO)
-	   @Column(name = "id", updatable = false, nullable = false)
-	   private Long id = null;
-	   @Version
-	   @Column(name = "version")
-	   private int version = 0;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", updatable = false, nullable = false)
+	private Long id = null;
+	
+	@Version
+	@Column(name = "version")
+	private int version = 0;
 
-	   @Column
-	   private String orderNumber;
+	@Column
+	private String orderNumber;
 
-	   public Order(String orderNumber, Set<OrderItem> items, OrderPayment payments) {
+	public Order(String orderNumber, Set<OrderItem> items, OrderPayment payments) {
 
 		this.orderNumber = orderNumber;
 		this.items = items;
@@ -41,11 +42,11 @@ public class Order {
 	}
 
 	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	   private Set<OrderItem> items = new HashSet<OrderItem>();
+	private Set<OrderItem> items = new HashSet<OrderItem>();
 
-	   @OneToOne
-	   private OrderPayment payments;
-	   
+	@OneToOne
+	private OrderPayment payments;
+
 	public void setPayments(OrderPayment payments) {
 		this.payments = payments;
 	}
@@ -81,12 +82,10 @@ public class Order {
 	public void setItems(Set<OrderItem> items) {
 		this.items = items;
 	}
-	
-	
+
 	public void addOrderItem(OrderItem orderItem) {
 		this.items.add(orderItem);
 		orderItem.setOrder(this);
 	}
 
-	
 }

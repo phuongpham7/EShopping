@@ -1,8 +1,6 @@
 package edu.mum.domain;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,28 +13,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-
 @Entity
 public class Category {
 
-    @Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
- 	private long id;
-    
-    String name;
-    String description;
-    
-    // If using a List INSTEAD of a SET - less efficient
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable ( name="Category_Item", joinColumns={@JoinColumn(name="Category_ID")},  
-    inverseJoinColumns={ @JoinColumn(name="item_ID")} )  
-    Set<Item> items = new HashSet<Item>();
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-	public long getId() {
+	String name;
+	String description;
+
+	// If using a List INSTEAD of a SET - less efficient
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "Category_Item", joinColumns = { @JoinColumn(name = "category_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "item_ID") })
+	Set<Item> items = new HashSet<Item>();
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -64,9 +61,8 @@ public class Category {
 		this.items = items;
 	}
 
- 	public void addItem(Item item) {
+	public void addItem(Item item) {
 		this.items.add(item);
 
 	}
-
 }

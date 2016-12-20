@@ -7,13 +7,12 @@ import java.util.Set;
 import edu.mum.domain.Item;
 
 public interface ItemService {
-
+	
 	List<Item> getAllItems();
 
-  	void save(Item item);
+	void save(Item item);
 
-	Item findOne(long id);
- 
- 
+	Item findOne(long itemId);
 
+	List<Item> findItemByName(String itemName);
 }

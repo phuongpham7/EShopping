@@ -29,7 +29,7 @@ public class UserCredentials {
 	private User user;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "username")
+	@JoinColumn(name = "credentials_id")
 	List<Authority> authority = new ArrayList<Authority>();
 
 	public String getUsername() {
@@ -78,24 +78,6 @@ public class UserCredentials {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-	
-	public boolean isAdmin(){
-		for (Authority auth : authority)
-		{
-			if (auth.getAuthority().equals("ROLE_ADMIN"))
-				return true;
-		}
-		return false;
-	}
-	
-	public boolean isUser(){
-		for (Authority auth : authority)
-		{
-			if (auth.getAuthority().equals("ROLE_USER"))
-				return true;
-		}
-		return false;
 	}
 
 }
