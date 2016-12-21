@@ -27,7 +27,7 @@ public class ProductController {
 		model.addAttribute("items",items); 
 		return "user/productList";	
 	}
-	
+	   
 	@RequestMapping("/addProductToCart/{id}")
 	public String addProductToCart(@PathVariable("id") Long id, Model model){
 		

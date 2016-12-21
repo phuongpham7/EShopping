@@ -27,7 +27,7 @@ public class CategoryUserController {
 		model.addAttribute("categories",categories);
 		return "user/categoryUser";
 	}
-	
+	    
 
 
 }

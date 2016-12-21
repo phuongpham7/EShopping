@@ -27,7 +27,7 @@ public class UserController {
 		model.addAttribute("users", userService.findAll());
 		return "users";
 	}
-	
+	   
   	@RequestMapping("/{id}")
 	public String getMemberById(@PathVariable("id") Long id,Model model) {
 		User member = userService.findOne(id);

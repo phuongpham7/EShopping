@@ -40,5 +40,5 @@ public class ItemServiceImpl implements ItemService{
 		return itemDao.findItemByCategoryId(id);
 	}
 	
-	   
+	       
 }

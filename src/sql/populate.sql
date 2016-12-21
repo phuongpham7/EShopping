@@ -10,7 +10,7 @@ INSERT INTO  users (firstname, lastname,age,title,usernumber, user_id) VALUES ('
 INSERT INTO users (firstname, lastname,age,title,usernumber,user_id) VALUES ('Allen','Rench',123,'Torque Master', 8733,'guest');
 
 INSERT INTO cart (cartname, version) VALUES ('cart_BoyMonkey_1',1), ('cart_TorqueMaster_2',1)
-
+   
 INSERT INTO Category (description, name) VALUES ('Sport', 'Sport'), ('Book', 'Book');	
 INSERT INTO Item (description, itemId, name, price) VALUES ('Kids Sport','1','Sport',8733);
 INSERT INTO Item (description, itemId, name, price) VALUES ('Kids Book','2','Book',873);
