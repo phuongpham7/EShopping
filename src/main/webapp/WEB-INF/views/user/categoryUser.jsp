@@ -7,7 +7,7 @@
 <title>Category</title>
 <link rel='stylesheet' href='../resources/css/bootstrap.min.css'>
 </head>
-<body>
+<body>     
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -41,7 +41,7 @@
 					<td>${category.name}</td>
 					<td>${category.description}</td>
 					<td><a
-						href="<spring:url value="/user/getProduct/${category.id}" />">
+						href="<spring:url value="/product/getProduct/${category.id}" />">
 							<span class="btn btn-info">Choose</span>
 					</a>
 				</tr>

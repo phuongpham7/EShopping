@@ -26,4 +26,14 @@ public class ItemDaoImpl extends GenericDaoImpl<Item> implements ItemDao {
 		return (List<Item>) query.setParameter("itemId", itemName).getResultList();
 	}
 
+	@Override
+	public List<Item> findItemByCategoryId(Long categoryId) {
+		   
+		Query query=entityManager.createQuery("select ite from Category c JOIN c.items ite WHERE c.id=:categoryId");
+		query.setParameter("categoryId",categoryId);
+		return (List<Item>) query.getResultList();
+	}
+	
+	
+
 }
