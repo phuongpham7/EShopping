@@ -1,4 +1,5 @@
 package edu.mum.domain;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,58 +25,68 @@ import edu.mum.validation.EmptyOrSize;
 
 @Entity
 public class Item implements Serializable {
-    private static final long serialVersionUID = 5784L;
+	private static final long serialVersionUID = 5784L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-     private long id;
-    @NotEmpty
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@NotEmpty
 	private String name;
-    public Item(String name, String description, float price) {
+
+	public Item(String name, String description, float price) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.price = price;
 	}
+
 	private String description;
-    @EmptyOrSize(min=2,max=10,  message= "{EmptyOrSize}")
-    private String itemId;
-    @Min(value=5)
+	
+	@EmptyOrSize(min = 2, max = 10, message = "{EmptyOrSize}")
+	private String itemId;
+	
+	@Min(value = 5)
 	private float price;
-  	
 
-
-     public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-    public String getName() {
+
+	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    public String getItemId() {
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getItemId() {
 		return itemId;
 	}
 
 	public void setItemId(String itemId) {
 		this.itemId = itemId;
 	}
+
 	public float getPrice() {
-        return price;
-    }
-    public void setPrice(float price) {
-        this.price = price;
-    }
-	
- }
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+}

@@ -11,6 +11,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import edu.mum.domain.Authority;
 import edu.mum.domain.User;
 import edu.mum.domain.UserCredentials;
+import edu.mum.service.AuthorityService;
 import edu.mum.service.UserCredentialsService;
 
 @Controller
@@ -18,7 +19,10 @@ import edu.mum.service.UserCredentialsService;
 public class LoginController {
 
 	@Autowired
-	UserCredentialsService credentialsService;
+	private UserCredentialsService credentialsService;
+	
+	@Autowired
+	private AuthorityService authorityService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
@@ -42,8 +46,8 @@ public class LoginController {
 		}
 			
 		model.addAttribute("user", validCredentials.getUser());
-
-		if (validCredentials.isAdmin())	return "admin/admin";
+		
+		if (authorityService.isAdmin(validCredentials.getUsername()))	return "admin/admin";
 
 		return "user/userFrontPage";
 	}

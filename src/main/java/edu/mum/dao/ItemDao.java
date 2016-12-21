@@ -1,17 +1,11 @@
 package edu.mum.dao;
 
-
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
- import edu.mum.domain.Item;
-
-import edu.mum.domain.User;
+import edu.mum.domain.Item;
 
 
-	public interface ItemDao extends GenericDao<Item>  
-	{
-  
-	}
-
+public interface ItemDao extends GenericDao<Item> {
+    Item findOne(Long itemId);
+    List<Item> findItemByName(String itemName);
+}
