@@ -16,7 +16,7 @@ public class CategoryController {
 	
 	@Autowired
 	private CategoryService categoryService;
-	
+	  
 	@RequestMapping("/category")
 	public String categories(Model model) {
 		List<Category> categories = categoryService.getCategoryList();
@@ -24,7 +24,7 @@ public class CategoryController {
 		return "admin/category";
 	}
 	
-
+  
 }
 
 

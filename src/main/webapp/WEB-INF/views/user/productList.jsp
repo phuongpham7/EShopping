@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product List</title>
-<link rel='stylesheet' href='resources/css/bootstrap.min.css'>
+<link rel='stylesheet' href='../../resources/css/bootstrap.min.css'>
 </head>
-<body>
+<body>    
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -36,12 +36,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${categories}" var="category">
+			<c:forEach items="${items}" var="item">
 				<tr>
-					<td>${category.name}</td>
-					<td>${category.description}</td>
+					<td>${item.name}</td>
+					<td>${item.description}</td>
 					<td><a
-						href="<spring:url value="/user/getProduct/${category.id}" />">
+						href="<spring:url value="/product/addProductToCart/${item.id}" />">
 							<span class="btn btn-info">Choose Product</span>
 					</a>
 				</tr>

@@ -15,4 +15,7 @@ public interface ItemService {
 	List<Item> findItemByName(String itemName);
 	
 	void deleteItem(Long id);
+	   
+	List<Item> findItemByCategoryId(Long id);
 }
+  

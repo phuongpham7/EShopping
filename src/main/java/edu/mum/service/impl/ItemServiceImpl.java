@@ -41,4 +41,12 @@ public class ItemServiceImpl implements ItemService{
 		itemDao.delete(id);
 		
 	}
+
+	@Override
+	public List<Item> findItemByCategoryId(Long id) {
+		
+		return itemDao.findItemByCategoryId(id);
+	}
+	
+	       
 }
