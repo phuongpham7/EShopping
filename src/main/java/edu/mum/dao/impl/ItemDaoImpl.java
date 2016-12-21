@@ -16,10 +16,10 @@ import edu.mum.domain.Item;
 import edu.mum.dao.ItemDao;
 
 	@Repository
-	public class ProductDaoImpl extends GenericDaoImpl<Item> implements ItemDao
+	public class ItemDaoImpl extends GenericDaoImpl<Item> implements ItemDao
 	{
 		
-		public ProductDaoImpl() {
+		public ItemDaoImpl() {
 			super.setDaoType(Item.class );
 			}
 

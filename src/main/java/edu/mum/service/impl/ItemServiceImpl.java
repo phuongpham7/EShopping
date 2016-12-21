@@ -36,7 +36,7 @@ public class ItemServiceImpl implements ItemService{
 
  
  	public void save(Item item) {
- 		itemDao.save(item);
+ 		itemDao.update(item);
 	}
 	
 	public Item findOne(long itemID) {

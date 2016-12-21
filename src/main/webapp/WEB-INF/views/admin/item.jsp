@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Category</title>
+<title>Item</title>
 <link rel='stylesheet' href='../resources/css/bootstrap.min.css'>
 </head>
 <body>
@@ -15,25 +15,40 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="<spring:url value="/admin" />">Home</a></li>
-			<li class="active"><a
-				href="<spring:url value="/admin/category" />">Category</a></li>
-			<li><a href="<spring:url value="/admin/item" />">Item</a></li>
+			<li><a href="<spring:url value='/admin/category' />">Category</a></li>
+			<li class="active"><a href="<spring:url value='/admin/item' />">Item</a></li>
 			<li><a href="<spring:url value='/logout' />">Logout</a></li>
 		</ul>
 	</div>
 	</nav>
+	<div>
+		<a href="<spring:url value="/admin/addItem" />"> <span
+			class="btn btn-info">Add new item</span>
+		</a>
+	</div>
+	<br />
 	<table class="table table-bordered">
 		<thead>
 			<tr>
+				<th></th>
 				<th>Name</th>
-				<th>Description</th>
+				<th>Item ID</th>
+				<th>Price</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${categories}" var="category">
+			<c:forEach items="${items}" var="item">
 				<tr>
-					<td>${category.description}</td>
-					<td>${category.name}</td>
+					<td><img
+						src="<c:url value="../resources/images/items/${item.itemId}.png"/>"
+						alt="test" /></td>
+					<td>${item.name}</td>
+					<td>${item.itemId}</td>
+					<td>${item.price}</td>
+					<td><a
+						href="<spring:url value="/admin/editItem/${item.id}" />"> <span
+							class="btn btn-info">Edit / Delete</span>
+					</a>
 				</tr>
 			</c:forEach>
 		</tbody>

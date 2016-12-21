@@ -22,4 +22,9 @@ public class CategoryServiceImpl implements CategoryService {
 		return (List<Category>)categoryDao.findAll();
 	}
 
+	@Override
+	public Category findOne(Long id) {
+		return categoryDao.findOne(id);
+	}
+
 }

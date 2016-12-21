@@ -1,7 +1,9 @@
 package edu.mum.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,10 +17,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.mum.validation.EmptyOrSize;
 
@@ -31,7 +35,11 @@ public class Item implements Serializable {
      private long id;
     @NotEmpty
 	private String name;
-    public Item(String name, String description, float price) {
+    
+    public Item() {
+		super();
+	}
+	public Item(String name, String description, float price) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -40,12 +48,15 @@ public class Item implements Serializable {
 	private String description;
     @EmptyOrSize(min=2,max=10,  message= "{EmptyOrSize}")
     private String itemId;
-    @Min(value=5)
+//    @Min(value=5)
 	private float price;
+    @Transient
+    private MultipartFile itemImage;
   	
+    @ManyToMany(cascade=CascadeType.ALL, mappedBy="items")
+    Set<Category> categories = new HashSet<Category>();
 
-
-     public long getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
@@ -78,4 +89,16 @@ public class Item implements Serializable {
         this.price = price;
     }
 	
+    public Set<Category> getCategories() {
+		return categories;
+	}
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
+	}
+	public MultipartFile getItemImage() {
+		return itemImage;
+	}
+	public void setItemImage(MultipartFile itemImage) {
+		this.itemImage = itemImage;
+	}
  }
