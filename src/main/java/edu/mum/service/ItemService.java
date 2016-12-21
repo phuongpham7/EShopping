@@ -12,6 +12,9 @@ public interface ItemService {
 
 	void save(Item item);
 
+	Item findOne(long id);
+ 
+ 
 	Item findOne(long itemId);
 
 	List<Item> findItemByName(String itemName);

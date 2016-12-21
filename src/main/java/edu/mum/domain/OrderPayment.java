@@ -29,6 +29,7 @@ public class OrderPayment {
 	@Column
 	private Integer amount;
 
+
 	public Long getId() {
 		return id;
 	}
@@ -69,4 +70,6 @@ public class OrderPayment {
 		this.amount = amount;
 	}
 
+	
+	
 }

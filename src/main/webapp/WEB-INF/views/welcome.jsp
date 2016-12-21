@@ -34,6 +34,9 @@
 		 					<a href="<spring:url value="/items/add" />" class="btn btn-default pull-right">Add Item</a>	
 		 					<a href="<spring:url value="/items/all" />" class="btn btn-default pull-right">Item List</a>	
 		 					<br>
+		 					<c:if test="${user.isAdmin()}">
+		 					<a href="<spring:url value='/admin' />" class="btn btn-default pull-right"> Admin page</a>
+		 					</c:if>
 		 					<a href="<spring:url value='/logout' />" class="btn btn-default pull-right"> Logout</a>
 		 
  					    </c:otherwise>

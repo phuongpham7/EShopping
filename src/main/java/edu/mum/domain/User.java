@@ -25,6 +25,7 @@ import org.hibernate.validator.constraints.Range;
 import edu.mum.validation.EmptyOrSize;
 import edu.mum.validation.NullMinNumber;
 
+
 @Entity(name = "USERS")
 public class User {
 
@@ -50,13 +51,14 @@ public class User {
 	@NullMinNumber(value = 6)
 	private Integer userNumber;
 
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
-	UserCredentials userCredentials;
+	@OneToOne(fetch=FetchType.EAGER,  cascade = CascadeType.ALL) 
+ 	@JoinColumn(name="user_id") 
+ 	UserCredentials userCredentials;
+ 	
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	private List<Address> addresses = new ArrayList<Address>();
-
+	@OneToMany(mappedBy="user",fetch=FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })  
+     private List<Address> addresses = new ArrayList<Address>();
+	
 	@OneToMany
 	private List<Order> orders = new ArrayList<Order>();
 	
@@ -132,6 +134,13 @@ public class User {
 	public Integer getAge() {
 		return age;
 	}
+ 	
+ 	public boolean isAdmin()
+ 	{
+ 		if (this.getUserCredentials().isAdmin())
+ 			return true;
+ 		return false;
+ 	}
 	
 	public List<Order> getOrders() {
 		return orders;

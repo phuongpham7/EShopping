@@ -1,8 +1,6 @@
 package edu.mum.domain;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,23 +19,25 @@ import edu.mum.validation.EmptyOrSize;
 @Entity
 public class Category {
 
-    @Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
  	private Long id;
-    
-    String name;
-    String description;
-    
-    // If using a List INSTEAD of a SET - less efficient
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable ( name="Category_Item", joinColumns={@JoinColumn(name="Category_ID")},  
-    inverseJoinColumns={ @JoinColumn(name="item_ID")} )  
-    Set<Item> items = new HashSet<Item>();
+
+	@EmptyOrSize(min = 1, max = 50, message = "{EmptyOrSize}")
+	String name;
+	
+	String description;
+
+	// If using a List INSTEAD of a SET - less efficient
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "Category_Item", joinColumns = { @JoinColumn(name = "category_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "item_ID") })
+	Set<Item> items = new HashSet<Item>();
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@EmptyOrSize(min = 1, max = 50, message = "{EmptyOrSize}")
+	public Long getId() {
 	String name;
 	
 	String description;
@@ -84,5 +84,4 @@ public class Category {
 		this.items.add(item);
 
 	}
-
 }

@@ -37,7 +37,6 @@ public class Item implements Serializable {
 
 	@NotEmpty
 	private String name;
-    
     public Item() {
 		super();
 	}
@@ -50,9 +49,13 @@ public class Item implements Serializable {
 
 	private String description;
 	
+    @EmptyOrSize(min=2,max=10,  message= "{EmptyOrSize}")
+    private String itemId;
 	@EmptyOrSize(min = 2, max = 10, message = "{EmptyOrSize}")
 	private String itemId;
 //    @Min(value=5)
+  
+	
 
 	private float price;
     @Transient
