@@ -16,13 +16,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
+import edu.mum.validation.EmptyOrSize;
 
 @Entity
 public class Category {
 
     @Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
- 	private long id;
+ 	private Long id;
     
     String name;
     String description;
@@ -32,12 +33,26 @@ public class Category {
     @JoinTable ( name="Category_Item", joinColumns={@JoinColumn(name="Category_ID")},  
     inverseJoinColumns={ @JoinColumn(name="item_ID")} )  
     Set<Item> items = new HashSet<Item>();
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-	public long getId() {
+	@EmptyOrSize(min = 1, max = 50, message = "{EmptyOrSize}")
+	String name;
+	
+	String description;
+
+	// If using a List INSTEAD of a SET - less efficient
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "Category_Item", joinColumns = { @JoinColumn(name = "category_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "item_ID") })
+	Set<Item> items = new HashSet<Item>();
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -65,7 +80,7 @@ public class Category {
 		this.items = items;
 	}
 
- 	public void addItem(Item item) {
+	public void addItem(Item item) {
 		this.items.add(item);
 
 	}

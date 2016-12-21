@@ -10,34 +10,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Version;
+import javax.validation.constraints.Min;
 
 @Entity
-public class OrderItem {
-
+public class CartItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", updatable = false, nullable = false)
-	private Long id = null;
+	private Long id;
 	
-	@Version
-	@Column(name = "version")
-	private int version = 0;
-
-	@Column
+	@Min(value = 1)
 	private int quantity;
-
-	public OrderItem(int quantity, Item item) {
-		super();
-		this.quantity = quantity;
-		this.item = item;
-	}
-
+	
 	@ManyToOne
-	private Order order;
-
+	@JoinColumn(name = "cartname")
+	private Cart cart;
+	
 	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinColumn(name = "orderItemId")
+	@JoinColumn(name = "itemId")
 	private Item item;
 
 	public Long getId() {
@@ -48,14 +37,6 @@ public class OrderItem {
 		this.id = id;
 	}
 
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-
 	public int getQuantity() {
 		return quantity;
 	}
@@ -63,21 +44,4 @@ public class OrderItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
-
-	public Item getItem() {
-		return item;
-	}
-
-	public void setItem(Item item) {
-		this.item = item;
-	}
-
 }

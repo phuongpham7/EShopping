@@ -23,6 +23,12 @@ import edu.mum.dao.ItemDao;
 			super.setDaoType(Item.class );
 			}
 
+		@Override
+		public List<Item> findItemByName(String itemName) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 
   
 	}

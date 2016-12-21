@@ -33,6 +33,7 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> getAllItems() {
 		return itemDao.findAll();
 	}
+ 
 
  
  	public void save(Item item) {
@@ -43,8 +44,8 @@ public class ItemServiceImpl implements ItemService{
 		return itemDao.findOne(itemID);
 	}
 
-    
- 
-
-
+	@Override
+	public List<Item> findItemByName(String itemName) {
+		return itemDao.findItemByName(itemName);
+	}
 }
