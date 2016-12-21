@@ -35,4 +35,10 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> findItemByName(String itemName) {
 		return itemDao.findItemByName(itemName);
 	}
+
+	@Override
+	public void deleteItem(Long id) {
+		itemDao.delete(id);
+		
+	}
 }

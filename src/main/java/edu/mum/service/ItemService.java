@@ -13,4 +13,6 @@ public interface ItemService {
 	Item findOne(long id);
 
 	List<Item> findItemByName(String itemName);
+	
+	void deleteItem(Long id);
 }

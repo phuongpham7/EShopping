@@ -35,7 +35,7 @@ public class Item implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@NotEmpty
+//	@NotEmpty
 	private String name;
     public Item() {
 		super();
@@ -49,12 +49,9 @@ public class Item implements Serializable {
 
 	private String description;
 	
-    @EmptyOrSize(min = 2, max = 10, message = "{EmptyOrSize}")
+//    @EmptyOrSize(min = 2, max = 10, message = "{EmptyOrSize}")
 	private String itemId;
 //    @Min(value=5)
-  
-	
-
 	private float price;
     @Transient
     private MultipartFile itemImage;
@@ -62,7 +59,7 @@ public class Item implements Serializable {
     @ManyToMany(cascade=CascadeType.ALL, mappedBy="items")
     Set<Category> categories = new HashSet<Category>();
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
