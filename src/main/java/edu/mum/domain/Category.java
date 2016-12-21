@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import edu.mum.validation.EmptyOrSize;
@@ -29,9 +30,7 @@ public class Category {
 	String description;
 
 	// If using a List INSTEAD of a SET - less efficient
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "Category_Item", joinColumns = { @JoinColumn(name = "category_ID") }, inverseJoinColumns = {
-			@JoinColumn(name = "item_ID") })
+	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval=true)
 	Set<Item> items = new HashSet<Item>();
 
 	public Long getId() {

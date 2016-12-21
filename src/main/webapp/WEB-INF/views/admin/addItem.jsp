@@ -44,7 +44,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="description">Category</label>
 				<c:forEach items="${categories}" var="category">
-					<label class="checkbox-inline"><input type="checkbox"
+					<label class="checkbox-inline"><input type="radio"
 						name="category" value="${category.id}" id="category" />${category.name}
 					</label>
 				</c:forEach>

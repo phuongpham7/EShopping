@@ -23,6 +23,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.mum.validation.EmptyOrSize;
@@ -56,8 +57,9 @@ public class Item implements Serializable {
     @Transient
     private MultipartFile itemImage;
 
-    @ManyToMany(cascade=CascadeType.ALL, mappedBy="items")
-    Set<Category> categories = new HashSet<Category>();
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "category_ID")
+    private Category category;
 
 	public Long getId() {
 		return id;
@@ -99,11 +101,11 @@ public class Item implements Serializable {
 		this.price = price;
 	}
 
-    public Set<Category> getCategories() {
-		return categories;
+    public Category getCategory() {
+		return category;
 	}
-	public void setCategories(Set<Category> categories) {
-		this.categories = categories;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	public MultipartFile getItemImage() {
 		return itemImage;

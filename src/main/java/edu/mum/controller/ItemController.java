@@ -56,21 +56,16 @@ public class ItemController {
 	@RequestMapping(value = "/addNewItem", method = RequestMethod.POST)
 	public String addItem(@Valid @ModelAttribute("item") Item item, BindingResult result, HttpServletRequest request)
 			throws IllegalStateException, IOException {
-		if (result.hasErrors()) {
-			System.out.println("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-			return "admin/addNewItem";
-		}
+//		if (result.hasErrors()) {
+//			System.out.println("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+//			return "admin/addItem";
+//		}
 
-		Set<Category> categories = new HashSet<Category>();
-		String[] categoryIds = request.getParameterValues("category");
-		for (String categoryId : categoryIds) {
-			Category cat = categoryService.findOne(Long.parseLong(categoryId));
-			categories.add(cat);
-			cat.addItem(item);
-		}
-
-		item.setCategories(categories);
-
+		String categoryId = request.getParameter("category");
+		Category cat = categoryService.findOne(Long.parseLong(categoryId));
+		cat.addItem(item);
+		item.setCategory(cat);
+		
 		itemService.save(item);
 
 		MultipartFile image = item.getItemImage();
@@ -85,7 +80,7 @@ public class ItemController {
 	}
 	
 	@RequestMapping("/editItem/{id}")
-	public String editProduct(@PathVariable int id, Model model) {
+	public String editItem(@PathVariable int id, Model model) {
 		
 		Item item = itemService.findOne(id);
 		
@@ -97,9 +92,9 @@ public class ItemController {
 	
 	@RequestMapping(value = "/editItem", method = RequestMethod.POST)
 	public String editItemPost(@Valid @ModelAttribute("item") Item item,BindingResult result, Model model, HttpServletRequest request) {
-		if (result.hasErrors()){
-			return "admin/editItem";
-		}
+//		if (result.hasErrors()){
+//			return "admin/editItem";
+//		}
 		
 		MultipartFile itemImage = item.getItemImage();
 
