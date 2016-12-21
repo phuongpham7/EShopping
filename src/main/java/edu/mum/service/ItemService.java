@@ -15,7 +15,4 @@ public interface ItemService {
 	Item findOne(long itemId);
 
 	List<Item> findItemByName(String itemName);
-	   
-	List<Item> findItemByCategoryId(Long id);
 }
-  

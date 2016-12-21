@@ -40,8 +40,6 @@ public class Item implements Serializable {
 		this.description = description;
 		this.price = price;
 	}
-	
-	public Item(){}
 
 	private String description;
 	

@@ -33,12 +33,4 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> findItemByName(String itemName) {
 		return itemDao.findItemByName(itemName);
 	}
-
-	@Override
-	public List<Item> findItemByCategoryId(Long id) {
-		
-		return itemDao.findItemByCategoryId(id);
-	}
-	
-	       
 }
