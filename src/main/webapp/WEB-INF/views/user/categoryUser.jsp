@@ -41,7 +41,7 @@
 					<td>${category.name}</td>
 					<td>${category.description}</td>
 					<td><a
-						href="<spring:url value="/user/getProduct/${category.id}" />">
+						href="<spring:url value="/product/getProduct/${category.id}" />">
 							<span class="btn btn-info">Choose</span>
 					</a>
 				</tr>
