@@ -33,20 +33,6 @@ public class Category {
 	@JoinTable(name = "Category_Item", joinColumns = { @JoinColumn(name = "category_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "item_ID") })
 	Set<Item> items = new HashSet<Item>();
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
-	public Long getId() {
-	String name;
-	
-	String description;
-
-	// If using a List INSTEAD of a SET - less efficient
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "Category_Item", joinColumns = { @JoinColumn(name = "category_ID") }, inverseJoinColumns = {
-			@JoinColumn(name = "item_ID") })
-	Set<Item> items = new HashSet<Item>();
 
 	public Long getId() {
 		return id;

@@ -27,8 +27,8 @@ public class ItemServiceImpl implements ItemService{
  		itemDao.update(item);
 	}
 	
-	public Item findOne(long itemID) {
-		return itemDao.findOne(itemID);
+	public Item findOne(long id) {
+		return itemDao.findOne(id);
 	}
 
 	@Override

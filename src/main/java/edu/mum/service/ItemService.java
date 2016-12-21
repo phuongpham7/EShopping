@@ -1,8 +1,6 @@
 package edu.mum.service;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import edu.mum.domain.Item;
 
@@ -13,9 +11,6 @@ public interface ItemService {
 	void save(Item item);
 
 	Item findOne(long id);
- 
- 
-	Item findOne(long itemId);
 
 	List<Item> findItemByName(String itemName);
 }
