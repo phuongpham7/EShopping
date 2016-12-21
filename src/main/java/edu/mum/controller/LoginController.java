@@ -45,7 +45,7 @@ public class LoginController {
 
 		if (validCredentials.isAdmin())	return "admin/admin";
 
-		return "welcome";
+		return "user/userFrontPage";
 	}
 
 	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
