@@ -22,13 +22,13 @@ public class UserCredentials {
 	@Id
 	@Column(nullable = false, unique = true)
 	String username;
-	
+
 	@Column(nullable = false)
 	@EmptyOrSize(min = 8, max = 16, message = "{EmptyOrSize}")
 	String password;
-	
+
 	String verifyPassword;
-	
+
 	Boolean enabled;
 
 	@OneToOne(mappedBy = "userCredentials", cascade = CascadeType.PERSIST)
@@ -85,5 +85,4 @@ public class UserCredentials {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 }

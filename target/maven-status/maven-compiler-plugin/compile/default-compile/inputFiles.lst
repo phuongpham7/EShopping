@@ -1,10 +1,13 @@
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/impl/UserCredentialsServiceImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/controller/CategoryController.java
+/Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/impl/AuthorityServiceImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/CartDao.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/impl/CartItemDaoImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/emailservice/EmailText.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/AddressService.java
+/Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/controller/CategoryUserController.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/ProductRepositoryLite.java
+/Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/AuthorityDao.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/impl/ItemDaoImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/OrderService.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/CartItemDao.java
@@ -28,7 +31,6 @@
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/impl/CategoryServiceImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/impl/UserServiceImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/CategoryDao.java
-/Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/impl/ProductDaoImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/impl/CartItemServiceImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/controller/UserController.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/domain/CartItem.java
@@ -43,12 +45,14 @@
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/domain/Category.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/validation/NullMinNumber.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/ItemService.java
+/Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/AuthorityService.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/EmailService.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/validation/EmptyOrSize.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/domain/User.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/service/impl/OrderItemServiceImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/impl/AddressDaoImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/domain/Item.java
+/Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/impl/AuthorityDaoImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/domain/OrderItem.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/impl/OrderDaoImpl.java
 /Users/hungduong/Documents/workspace-sts-3.8.2.RELEASE/EShopping/src/main/java/edu/mum/dao/impl/GenericDaoImpl.java
