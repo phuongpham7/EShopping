@@ -18,3 +18,4 @@ public interface ItemService {
 	
 	List<Item> findItemByCategoryId(Long id);
 }
+  

@@ -8,6 +8,6 @@
 </head>
 <body>
 
-Product Added to Cart
+Product Added to Cart   
 </body>
 </html>

@@ -20,7 +20,7 @@ public class CategoryUserController {
 	private CategoryService categoryService;
 	
 	
-	
+	  
 	@RequestMapping("/category")
 	public String categoriesUser(Model model){
 		List<Category> categories=categoryService.getCategoryList();
