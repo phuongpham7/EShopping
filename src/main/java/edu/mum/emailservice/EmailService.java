@@ -32,12 +32,15 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
+import edu.mum.domain.Item;
 import edu.mum.domain.Order;
 
 @Service("emailService")
 public class EmailService {
 
-     private static final String IM_THE_GUY = "templates/images/imtheguy.jpg";
+     private static final String ESHOPPING = "templates/images/eshopping.jpg";
+     private static final String ESHOPPING2 = "templates/images/ny.jpg";
+     private static final String PROMOTION = "templates/images/promotion.jpg";
     
      private static final String JPG_MIME = "image/jpg";
      private static final String DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
@@ -49,42 +52,59 @@ public class EmailService {
     private SpringTemplateEngine templateEngine;
     
     /* 
-     * Send HTML mail (simple) 
+     * Send HTML mail (
      */
     public void sendOrderReceivedMail(
-            final String recipientName, final String recipientEmail, Order order,String documentName,final Locale locale) 
+            final String recipientName, final String recipientEmail, final String [] ccrecipientEmail,  Order order,Item item, String documentName,final Locale locale) 
             throws MessagingException {
-        
-        // Prepare the evaluation context
-        final Context thymeContext = new Context(locale);
-        thymeContext.setVariable("name", recipientName);
-        thymeContext.setVariable("order", order);
-          
-        // Prepare message using a Spring helper
-        final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
+    	
+		 
+		// Prepare message using a Spring helper
+		final MimeMessage mimeMessage = this.mailSender.createMimeMessage();
         final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true,"UTF-8");
         message.setSubject("Order Details");
  
-        // could have CC, BCC, will also take an array of Strings
-        message.setTo(recipientEmail);
-
-        // Create the HTML body using Thymeleaf
-        final String htmlContent = this.templateEngine.process("orderReceivedMail", thymeContext);
-        message.setText(htmlContent, true /* isHtml */);
-   
-        message.addInline("imtheguy", new ClassPathResource(IM_THE_GUY), JPG_MIME);
         
+        message.setTo(recipientEmail);
+        if(ccrecipientEmail!=null)
+        {
+        message.setCc(ccrecipientEmail);
+        }
+
+        
+       
+        
+        String htmlContent="";
+		// Prepare the evaluation context
+		final Context thymeContext = new Context(locale);
+		thymeContext.setVariable("name", recipientName);
+		
+		if (order != null) {
+			thymeContext.setVariable("order", order);
+			// Create the HTML body using Thymeleaf
+			htmlContent = this.templateEngine.process("emailOrder", thymeContext);
+			
+		} 
+		else if (item != null) 
+		{
+			thymeContext.setVariable("item", item);
+			htmlContent = this.templateEngine.process("emailPromotion", thymeContext);
+			
+			message.setSubject(recipientName);
+		}
+		message.setText(htmlContent, true /* isHtml */);
+		message.addInline("promotion", new ClassPathResource(PROMOTION), JPG_MIME);
+		message.addInline("eshopping2", new ClassPathResource(ESHOPPING2), JPG_MIME);
+        message.addInline("eshopping", new ClassPathResource(ESHOPPING), JPG_MIME);
+        
+        
+       
         
 
         String documentLocation = "templates/images/" + documentName ;
          message.addAttachment(documentName, new ClassPathResource(documentLocation));
  
-/* 
-   // Alternative
-        File file = new File(documentLocation);
-      message.addAttachment(documentName, file);
-*/        
-        // Send email
+
         this.mailSender.send(mimeMessage);
 
     }

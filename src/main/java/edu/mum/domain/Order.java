@@ -1,6 +1,9 @@
 package edu.mum.domain;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,7 +24,10 @@ import javax.persistence.Version;
 @Entity
 @Table(name = "purchaseOrder")
 
-public class Order {
+public class Order implements Serializable {
+	
+	private static final long serialVersionUID = 5784L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
@@ -34,7 +40,7 @@ public class Order {
 	@Column
 	private String orderNumber;
 
-	public Order(String orderNumber, Set<OrderItem> items, OrderPayment payments) {
+	public Order(String orderNumber, List<OrderItem> items, OrderPayment payments) {
 
 		this.orderNumber = orderNumber;
 		this.items = items;
@@ -42,7 +48,7 @@ public class Order {
 	}
 
 	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	private Set<OrderItem> items = new HashSet<OrderItem>();
+	private List<OrderItem> items = new ArrayList<OrderItem>();
 
 	@OneToOne
 	private OrderPayment payments;
@@ -75,11 +81,11 @@ public class Order {
 		this.orderNumber = orderNumber;
 	}
 
-	public Set<OrderItem> getItems() {
+	public List<OrderItem> getItems() {
 		return items;
 	}
 
-	public void setItems(Set<OrderItem> items) {
+	public void setItems(List<OrderItem> items) {
 		this.items = items;
 	}
 

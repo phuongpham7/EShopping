@@ -21,6 +21,10 @@ public class Authority {
 	@Column(nullable = false)
 	private String authority;
 
+	public Authority() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}

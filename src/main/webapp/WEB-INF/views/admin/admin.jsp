@@ -14,12 +14,14 @@
 			<a class="navbar-brand" href="<spring:url value="/welcome" />">EShopping</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="<spring:url value="/admin" />">Home</a></li>
+			<li class="active"><a href="<spring:url value="/admin" />">Home</a></li>	
 			<li><a href="<spring:url value="/admin/category" />">Category</a></li>
 			<li><a href="<spring:url value="/admin/item" />">Item</a></li>
+			<li class="active" style="background-color: #5DADE2"><a href="<spring:url value='/promotion/publish' />" class="btn btn-default pull-right"> Promotion</a></li> 
 			<li><a href="<spring:url value='/logout' />">Logout</a></li>
 		</ul>
 	</div>
+
 	</nav>
 </body>
 </html>

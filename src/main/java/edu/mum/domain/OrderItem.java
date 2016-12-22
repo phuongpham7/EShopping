@@ -27,6 +27,10 @@ public class OrderItem {
 	@Column
 	private int quantity;
 
+	public OrderItem() {
+		
+	}
+	
 	public OrderItem(int quantity, Item item) {
 		super();
 		this.quantity = quantity;

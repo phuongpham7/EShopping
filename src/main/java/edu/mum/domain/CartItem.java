@@ -29,6 +29,10 @@ public class CartItem {
 	@JoinColumn(name = "itemId")
 	private Item item;
 
+	public CartItem() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}

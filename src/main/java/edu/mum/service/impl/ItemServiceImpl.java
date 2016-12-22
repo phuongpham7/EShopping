@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.mum.domain.Item;
+import edu.mum.amqp.AmqpPublisher;
+import edu.mum.aspect.annotation.Searching;
 import edu.mum.dao.ItemDao;
 import edu.mum.service.ItemService;
 
@@ -27,6 +29,7 @@ public class ItemServiceImpl implements ItemService{
  		itemDao.update(item);
 	}
 	
+ 	@Searching
 	public Item findOne(long id) {
 		return itemDao.findOne(id);
 	}
@@ -48,5 +51,9 @@ public class ItemServiceImpl implements ItemService{
 		return itemDao.findItemByCategoryId(id);
 	}
 	
-	       
+	@Override
+	public void publish(Item item) {
+		AmqpPublisher.publish(item);
+		
+	}
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/rabbit
+        http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <rabbit:connection-factory id="connectionFactory" host="localhost" username="joe" password="joe"/>
+ 
+    <rabbit:admin connection-factory="connectionFactory" />
+
+<!-- ******************* TOPIC *************************** -->
+    <rabbit:queue name="promotionItem" />
+ 
+    <rabbit:topic-exchange name="order">
+        <rabbit:bindings>
+            <rabbit:binding queue="promotionItem" pattern="promotion.item.#" />
+          </rabbit:bindings>
+    </rabbit:topic-exchange>
+    <rabbit:queue name="promotionGroupA" />
+ 
+    <rabbit:topic-exchange name="order">
+        <rabbit:bindings>
+            <rabbit:binding queue="promotionGroupA" pattern="promotion.item.groupa.#" />
+          </rabbit:bindings>
+    </rabbit:topic-exchange>
+    
+     <rabbit:queue name="promotionGroupB" />
+ 
+    <rabbit:topic-exchange name="order">
+        <rabbit:bindings>
+            <rabbit:binding queue="promotionGroupB" pattern="promotion.item.groupb.#" />
+          </rabbit:bindings>
+    </rabbit:topic-exchange>
+    
+    
+    
+<!-- **************** TOPIC PRODUCER  -->
+    <rabbit:template id="topicTemplate" connection-factory="connectionFactory"
+                     reply-timeout="2000" routing-key="promotion.item"      
+                     exchange="order" />
+                     
+                     <rabbit:template id="topicTemplate" connection-factory="connectionFactory"
+                     reply-timeout="2000" routing-key="promotion.item.groupa"      
+                     exchange="order" />
+                     
+                     <rabbit:template id="topicTemplate" connection-factory="connectionFactory"
+                     reply-timeout="2000" routing-key="promotion.item.groupb"      
+                     exchange="order" />
+
+ 
+    
+    
+
+
+<!--  ****************  TOPIC CONSUMER ************************* -->
+ <rabbit:listener-container connection-factory="connectionFactory">
+	<rabbit:listener ref="amqpItemListner" method="listen" queue-names="promotionGroupB" />
+</rabbit:listener-container> 
+
+<bean id="amqpItemListner" class="edu.mum.amqp.AmqpItemListner" />
+
+</beans>

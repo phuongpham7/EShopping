@@ -33,6 +33,10 @@ public class Category {
 	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval=true)
 	Set<Item> items = new HashSet<Item>();
 
+	public Category() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -24,9 +24,11 @@
 					<c:choose>
 					    <c:when test="${empty user}">
       					<a href="<spring:url value='/login' />" class="btn btn-default pull-right"> Login</a>
+					    <a href="<spring:url value='/users/add' />" class="btn btn-default pull-right"> Sign up</a>
+				
 					    </c:when>
 					    <c:otherwise>
-					       <a href="<spring:url value="/users/email" />" class="btn btn-default pull-right">Send Email</a>	
+					       <a href="<spring:url value="/users/${user.id}/email" />" class="btn btn-default pull-right">Send Email</a>	
 		 					
 		 					<a href="<spring:url value="/users/add" />" class="btn btn-default pull-right">Add User</a>	
 		 					<a href="<spring:url value="/users" />" class="btn btn-default pull-right">Users List</a>	
@@ -34,6 +36,9 @@
 		 					<a href="<spring:url value="/items/add" />" class="btn btn-default pull-right">Add Item</a>	
 		 					<a href="<spring:url value="/items/all" />" class="btn btn-default pull-right">Item List</a>	
 		 					<br>
+		 					<c:if test="${user.isAdmin()}">
+		 					<a href="<spring:url value='/admin' />" class="btn btn-default pull-right"> Admin page</a>
+		 					</c:if>
 		 					<a href="<spring:url value='/logout' />" class="btn btn-default pull-right"> Logout</a>
 		 
  					    </c:otherwise>

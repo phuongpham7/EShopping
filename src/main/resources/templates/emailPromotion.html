@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:remove="all">Christmas promotion</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+      
+   <div style="font-size:18px"><em>Newyork Eshopping complex Promotion </em>
+            <img src="cid:promotion"  height="200" width="200" />
+    </div>
+           <div>
+            <img src="cid:eshopping"  height="80" width="80" /><em>  EShopping in Newyork</em>
+   		  </div> 
+        
+        <p>We have huge sale for below item : </p>
+        <div style="text-indent: 3em; font-size:15px">		
+	 		<p><b>Item name: </b> <span th:text="${item.name}"></span></p>
+	 		<p><b>Lowest price for thisCristmas  </b> <span th:text="${item.price}"></span></p>
+	 		<p><b>More info about item :</b> <span th:text="${item.description}"></span></p>
+</div>	<p>
+            You have been successfully subscribed to the <b>EShopping newsletter</b> on
+            <span th:text="22-12-2016"></span>
+        </p>
+        <p>
+            Regards, <br />
+            &emsp; <em>Eshooping Team</em>
+        </p>
+    </body>
+</html>

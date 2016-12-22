@@ -1,8 +1,10 @@
 package edu.mum.service;
 
 import java.util.List;
-import java.util.Set;
+import java.util.Locale;
 
+import edu.mum.domain.Item;
+import edu.mum.domain.Order;
 import edu.mum.domain.User;
 
 public interface UserService {
@@ -15,4 +17,5 @@ public interface UserService {
 
 	public User findOne(Long id);
 
+	public void sendEmail( final String recipientName, final String recipientEmail, final String [] ccrecipientEmail,  Order order,Item item, String documentName,final Locale locale) ;
 }

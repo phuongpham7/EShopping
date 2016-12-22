@@ -66,6 +66,10 @@ public class User {
 	@JoinColumn(name="card_id") 
 	private Cart cart;
 
+	public User() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}

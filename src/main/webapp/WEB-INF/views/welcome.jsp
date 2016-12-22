@@ -24,9 +24,11 @@
 					<c:choose>
 					    <c:when test="${empty user}">
       					<a href="<spring:url value='/login' />" class="btn btn-default pull-right"> Login</a>
+					    <a href="<spring:url value='/users/add' />" class="btn btn-default pull-right"> Sign up</a>
+				
 					    </c:when>
 					    <c:otherwise>
-					       <a href="<spring:url value="/users/email" />" class="btn btn-default pull-right">Send Email</a>	
+					       <a href="<spring:url value="/users/${user.id}/email" />" class="btn btn-default pull-right">Send Email</a>	
 		 					
 		 					<a href="<spring:url value="/users/add" />" class="btn btn-default pull-right">Add User</a>	
 		 					<a href="<spring:url value="/users" />" class="btn btn-default pull-right">Users List</a>	

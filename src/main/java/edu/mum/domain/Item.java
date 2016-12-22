@@ -38,11 +38,11 @@ public class Item implements Serializable {
 
 //	@NotEmpty
 	private String name;
+	
     public Item() {
-		super();
 	}
+    
 	public Item(String name, String description, float price) {
-		super();
 		this.name = name;
 		this.description = description;
 		this.price = price;

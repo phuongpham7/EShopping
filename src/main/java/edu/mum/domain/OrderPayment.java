@@ -1,5 +1,7 @@
 package edu.mum.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity
-public class OrderPayment {
-
+public class OrderPayment implements Serializable {
+	private static final long serialVersionUID = 5784L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
@@ -29,6 +32,9 @@ public class OrderPayment {
 	@Column
 	private Integer amount;
 
+	public OrderPayment(){
+		
+	}
 
 	public Long getId() {
 		return id;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:remove="all"> Order email </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+    <div style="font-size:10px"><em>Newyork Eshopping complex</em>
+          
+            <img src="cid:eshopping2"  height="200" width="400" />
+   		 
+    </div>
+    <div style="font-size:20px"><em>Thanks for shopping with Eshopping.come</em>
+           <div style="text-indent: 8em;">
+            <img src="cid:eshopping"  height="80" width="80" /><em>  EShopping in Newyork</em>
+   		  </div> 
+    </div>
+        <p th:text="Welcom ${name}"/>
+  
+            <H4> We have received your order and are Processing it !</H4>
+  
+        <p>Here are your Order details:</p>
+ 		<b>Order Number: </b> <span th:text="${order.orderNumber}"></span>
+ 		
+         <div th:each="item : ${order.items}" > 
+  <div style="text-indent: 3em;">		
+	 		<p><b>Product: </b> <span th:text="${item.item.name}"></span></p>
+	 		<p><b>Quantity: </b> <span th:text="${item.quantity}"></span></p>
+	 		<p><b>Price: </b> <span th:text="${item.item.price}"></span></p>
+</div>	
+	 		<p><b>Total: </b> <span th:text="${item.quantity} * ${item.item.price}"></span></p>
+		</div>
+		
+		<br /><p>
+            As a special bonus, you can find <b>The New york shopping  Specifications</b> attached to this message.
+        </p>
+		
+         <p><br />
+            Thanks for your order, <br />
+            &emsp; <em><b>Eshopping - Online</b></em>
+        </p>
+    </body>
+</html>

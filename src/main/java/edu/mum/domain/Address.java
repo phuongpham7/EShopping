@@ -33,6 +33,10 @@ public class Address {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	public Address() {
+		
+	}
+	
 	public String getStreet() {
 		return street;
 	}

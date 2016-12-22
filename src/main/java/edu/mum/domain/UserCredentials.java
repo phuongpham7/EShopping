@@ -31,7 +31,7 @@ public class UserCredentials {
 
 	Boolean enabled;
 
-	@OneToOne(mappedBy = "userCredentials", cascade = CascadeType.PERSIST)
+	@OneToOne(mappedBy = "userCredentials")
 	private User user;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
