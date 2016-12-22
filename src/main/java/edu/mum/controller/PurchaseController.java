@@ -13,7 +13,7 @@ import edu.mum.service.ItemService;
 
 @Controller
 @RequestMapping("/product")
-public class ProductController {
+public class PurchaseController {
 	@Autowired
 	private ItemService itemService;
 	
@@ -30,6 +30,8 @@ public class ProductController {
 	   
 	@RequestMapping("/addProductToCart/{id}")
 	public String addProductToCart(@PathVariable("id") Long id, Model model){
+		
+		Item item=itemService.findOne(id);
 		
 		return "user/ProductAddedToCartConfirmation";
 	}

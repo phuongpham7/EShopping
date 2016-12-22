@@ -42,7 +42,7 @@
 					<td>${item.description}</td>
 					<td><a
 						href="<spring:url value="/product/addProductToCart/${item.id}" />">
-							<span class="btn btn-info">Choose Product</span>
+							<span class="btn btn-info">Confirm Product Purchase</span>
 					</a>
 				</tr>
 			</c:forEach>
