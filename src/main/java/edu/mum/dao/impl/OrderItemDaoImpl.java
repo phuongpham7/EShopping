@@ -7,7 +7,6 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import edu.mum.dao.OrderItemDao;
-import edu.mum.domain.CartItem;
 import edu.mum.domain.OrderItem;
 
 @SuppressWarnings("unchecked")

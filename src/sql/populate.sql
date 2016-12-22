@@ -11,10 +11,10 @@ INSERT INTO users (firstname, lastname,age,title,usernumber,user_id) VALUES ('Al
 
 INSERT INTO category (description, name) VALUES ('Sport', 'Sport'), ('Book', 'Book');
 
-INSERT INTO item (description, itemId, name, price) VALUES ('Book 1', 'B001', 'The Silent Wife', 11.99);
-INSERT INTO item (description, itemId, name, price) VALUES ('Book 2', 'B002', 'Dog Man: From the Creator of Captain Underpants (Dog Man #1)', 5.99);
-INSERT INTO item (description, itemId, name, price) VALUES ('Sport 1', 'S001', 'Skechers WomenS Sport Flex Appeal Pretty City Sneakers - Black, 7.5', 40);
-INSERT INTO item (description, itemId, name, price) VALUES ('Sport 2', 'S002', 'Easy Spirit Motion Sport Casuals - White 9.5 B White', 60);
+INSERT INTO item (description, itemId, name, price, category_ID) VALUES ('Book 1', 'B001', 'The Silent Wife', 11.99, 1);
+INSERT INTO item (description, itemId, name, price, category_ID) VALUES ('Book 2', 'B002', 'Dog Man: From the Creator of Captain Underpants (Dog Man #1)', 5.99, 2);
+INSERT INTO item (description, itemId, name, price, category_ID) VALUES ('Sport 1', 'S001', 'Skechers WomenS Sport Flex Appeal Pretty City Sneakers - Black, 7.5', 40, 1);
+INSERT INTO item (description, itemId, name, price, category_ID) VALUES ('Sport 2', 'S002', 'Easy Spirit Motion Sport Casuals - White 9.5 B White', 60, 2);
 INSERT INTO cart (cartname, version) VALUES ('cart_BoyMonkey_1',1), ('cart_TorqueMaster_2',1)
 
 

@@ -23,6 +23,10 @@
 	</div>
 	</nav>
 
+	<a href="<spring:url value="/shoppingcart/processOrder" />">
+			<span class="btn btn-info">Process Order</span>
+	</a>
+	
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -45,9 +49,5 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
-	<a href="<spring:url value="/admin/editItem/${item.id}" />">
-			<span class="btn btn-info">Edit / Delete</span>
-	</a>
 </body>
 </html>

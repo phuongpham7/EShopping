@@ -1,5 +1,7 @@
 package edu.mum.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,5 +28,10 @@ public class CartItemServiceImpl implements CartItemService {
 	@Override
 	public Item findItemByCartItemId(Long id) {
 		return cartItemDao.findItemByCartItemId(id);
+	}
+
+	@Override
+	public List<Item> getAllItemsByUserId(Long id) {
+		return cartItemDao.getAllItemsByUserId(id);
 	}
 }

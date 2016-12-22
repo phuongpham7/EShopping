@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import edu.mum.validation.EmptyOrSize;
 
 @Entity(name = "CREDENTIALS")
@@ -21,12 +23,15 @@ public class UserCredentials {
 
 	@Id
 	@Column(nullable = false, unique = true)
+	@NotEmpty(message = "{String.empty}")
 	String username;
 
 	@Column(nullable = false)
 	@EmptyOrSize(min = 8, max = 16, message = "{EmptyOrSize}")
 	String password;
 
+	@Column(nullable = false)
+	@EmptyOrSize(min = 8, max = 16, message = "{EmptyOrSize}")
 	String verifyPassword;
 
 	Boolean enabled;
