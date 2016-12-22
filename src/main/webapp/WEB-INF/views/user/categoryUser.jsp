@@ -17,7 +17,7 @@
 			<li><a href="<spring:url value="/user" />">Home</a></li>
 			<li class="active"><a
 				href="<spring:url value="/user/category" />">Category</a></li>
-			<li><a href="#">Cart</a></li>
+			<li><a href="<spring:url value="/shoppingcart/cart" />">Cart</a></li>
 			<li><a href="<spring:url value='/logout' />">Logout</a></li>
 		</ul>
 	</div>
